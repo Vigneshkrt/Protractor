@@ -1,10 +1,11 @@
-import { element } from "protractor";
+describe('AngularTest', () => {
 
-describe('Weather', () => {
     it('check', ()=>{
-        browser.get('http://newtours.demoaut.com');
-        let userName = element(by.xpath('/html/body/div/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[4]/td/table/tbody/tr[2]/td[2]/input'));
-        element()
+        browser.get('http://angularjs.org');
+        element(by.model('yourName')).sendKeys('Best Tester');
+        let userName = element(by.xpath('//div[contains(@class, "well ng-scope")]/div/h1'));
+        expect(userName.getText()).toEqual('Hello Best Tester!');
+        browser.sleep(5000);
     })
 })
 
