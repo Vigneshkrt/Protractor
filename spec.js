@@ -1,11 +1,14 @@
 describe('AngularTest', () => {
 
     it('check', ()=>{
-        browser.get('http://angularjs.org');
-        element(by.model('yourName')).sendKeys('Best Tester');
-        let userName = element(by.xpath('//div[contains(@class, "well ng-scope")]/div/h1'));
-        expect(userName.getText()).toEqual('Hello Best Tester!');
-        browser.sleep(5000);
+        // browser.waitForAngularEnabled(false);
+        browser.get('http://juliemr.github.io/protractor-demo/');
+        expect(browser.getTitle()).toEqual('Super Calculator');
+        element(by.model('first')).sendKeys(10);
+        element(by.model('second')).sendKeys(10);
+        element(by.id('gobutton')).click();
+        expect(element(by.className('ng-binding')).getText()).toEqual('20');
+        browser.sleep(2000);
     })
-})
+});
 
